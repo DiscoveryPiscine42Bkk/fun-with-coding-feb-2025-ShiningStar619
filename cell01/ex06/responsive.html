@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Responsive Table</title>
+    <style>
+        /* ทำให้ตารางเต็มจอ */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        /* ปรับขนาดเซลล์ตามเนื้อหา */
+        td {
+            padding: 10px;
+            border: 1px solid black;
+        }
+        /* Responsive สำหรับหน้าจอเล็ก (เช่น มือถือ) */
+        @media (max-width: 600px) {
+            td {
+                display: block;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td style="background-color: #FFB6C1;">Hello World</td>
+            <td style="background-color: #87CEEB;">สวัสดีชาวโลก</td>
+        </tr>
+    </table>
+</body>
+</html>
