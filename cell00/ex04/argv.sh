@@ -1,4 +1,13 @@
-echo "Argument 1: ${1:-}"
-echo "Argument 2: ${2:-}"
-echo "Argument 3: ${3:-}"
+#!/bin/bash
+if [ $# -eq 0 ]; then
+    echo "No arguments supplied"
+else
+    for arg in "$@"; do
+        echo "$arg"
+        if [ $(($OPTIND - 1)) -ge 2 ]; then
+            break
+        fi
+    done
+fi
+
 
