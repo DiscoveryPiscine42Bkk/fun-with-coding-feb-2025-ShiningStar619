@@ -1,0 +1,19 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* สไตล์เซลล์พื้นฐาน */
+td {
+    padding: 20px;
+    border: 2px solid #333;
+    text-align: center;
+}
+
+/* Responsive สำหรับมือถือ */
+@media (max-width: 600px) {
+    td {
+        display: block;
+        width: 100% !important;
+    }
+}
