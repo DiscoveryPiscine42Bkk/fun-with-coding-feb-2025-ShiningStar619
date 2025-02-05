@@ -1,0 +1,73 @@
+/* สไตล์พื้นฐาน */
+body {
+    background: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* สไตล์บัตร */
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 350px;
+    text-align: center;
+}
+
+/* รูปโปรไฟล์ */
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 20px auto;
+    display: block;
+}
+
+/* ตารางจัดวางข้อมูล */
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.user-info h2 {
+    color: #2c3e50;
+    margin: 0;
+}
+
+.user-info p {
+    color: #7f8c8d;
+    font-size: 0.9em;
+}
+
+/* ไอคอนโซเชียล */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+}
+
+/* ปุ่มติดต่อ */
+.contact-btn {
+    display: inline-block;
+    background: #3498db;
+    color: white;
+    padding: 10px 25px;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: 0.3s;
+}
+
+.contact-btn:hover {
+    background: #2980b9;
+}
