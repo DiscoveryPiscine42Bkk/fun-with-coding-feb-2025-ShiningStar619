@@ -1,0 +1,44 @@
+/* รีเซ็ตค่าพื้นฐาน */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* สไตล์พารัลแลกซ์ */
+.parallax {
+    height: 100vh; 
+    background-attachment: fixed; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img1 {
+    background-image: url("https://i.pinimg.com/736x/07/08/8c/07088c81505056457fd56def0bedd06a.jpg"); 
+}
+
+.img2 {
+    background-image: url("https://i.pinimg.com/736x/0c/97/62/0c9762d1044fde55cfccc6d3f8abfedb.jpg"); 
+}
+
+.text {
+    color: white;
+    font-size: 3em;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* สไตล์บล็อกสีดำ */
+.content {
+    padding: 50px;
+    background: #000;
+    color: white;
+    text-align: center;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

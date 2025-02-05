@@ -1,19 +1,27 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
 table {
     width: 100%;
+    height: 100%;
     border-collapse: collapse;
 }
 
-/* สไตล์เซลล์พื้นฐาน */
 td {
-    padding: 20px;
-    border: 2px solid #333;
+    border: 1px solid black;
+    padding: 10px;
     text-align: center;
 }
 
-/* Responsive สำหรับมือถือ */
 @media (max-width: 600px) {
-    td {
+    table, tr, td {
         display: block;
-        width: 100% !important;
+        width: 100%;
+    }
+    td {
+        margin-bottom: 10px;
     }
 }
