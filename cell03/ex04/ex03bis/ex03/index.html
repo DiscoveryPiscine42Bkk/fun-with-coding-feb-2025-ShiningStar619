@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+ 
+    <meta charset="UTF-8">
+    <title>To-Do List</title>
+    <style>
+        #ft_list {
+            width: 300px;
+            margin: 20px auto;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        .todo-item {
+            padding: 10px;
+            margin: 5px;
+            background: #f8f8f8;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .todo-item:hover {
+            background: #f0f0f0;
+        }
+        #newBtn {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button id="newBtn">New</button>
+    <div id="ft_list"></div>
+    <script src="todo.js"></script>
+</body>
+</html>

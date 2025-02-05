@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>Balloon explosion</title>
+    <style>
+        /* สไตล์บอลลูน */
+        #balloon {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border-radius: 50%;
+            transition: all 0.3s ease; 
+            cursor: pointer;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="balloon"></div>
+
+    <script>
+        // ตัวแปรควบคุมสถานะ
+        let size = 200;
+        let colors = ['red', 'green', 'blue'];
+        let colorIndex = 0;
+
+        $('#balloon');
+
+        // การคลิกบอลลูน
+        balloon.addEventListener('click', () => {
+            // ขยายขนาด
+            size += 10;
+            
+            // ตรวจสอบระเบิด
+            if(size > 420) {
+                size = 200;
+                colorIndex = 0;
+            } else {
+                // เปลี่ยนสีตามลำดับ
+                colorIndex = (colorIndex + 1) % colors.length;
+            }
+
+            updateBalloon();
+        });
+
+        // เมาส์ออกนอกบอลลูน
+        balloon.addEventListener('mouseleave', () => {
+            // หดขนาด
+            size = Math.max(200, size - 5);
+            
+            // เปลี่ยนสีย้อนกลับ
+            colorIndex = (colorIndex - 1 + colors.length) % colors.length;
+            
+            updateBalloon();
+        });
+
+        // อัพเดตบอลลูน
+        function updateBalloon() {
+            balloon.style.width = size + 'px';
+            balloon.style.height = size + 'px';
+            balloon.style.backgroundColor = colors[colorIndex];
+        }
+    </script>
+</body>
+</html>

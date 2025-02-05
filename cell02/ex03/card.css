@@ -1,6 +1,6 @@
 /* สไตล์พื้นฐาน */
 body {
-    background: #f0f0f0;
+    background: #000000;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,7 +10,7 @@ body {
 
 /* สไตล์บัตร */
 .card {
-    background: white;
+    background: rgb(0, 0, 0);
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
