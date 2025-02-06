@@ -40,7 +40,7 @@
 </head>
 <body>
     <div class="calculator">
-        <input type="number" id="left" placeholder="ตัวเลขซ้าย" min="0">
+        <input type="text" id="left" placeholder="ตัวเลขซ้าย">
         <select id="operator">
             <option value="+">+</option>
             <option value="-">-</option>
@@ -48,48 +48,54 @@
             <option value="/">/</option>
             <option value="%">%</option>
         </select>
-        <input type="number" id="right" placeholder="ตัวเลขขวา" min="0">
+        <input type="text" id="right" placeholder="ตัวเลขขวา">
         <button onclick="calculate()">calculate!</button>
     </div>
 
     <script>
-        // Alert ทุก 30 วินาที
-        setInterval(() => {
-            alert('Please, use me...');
-        }, 60000);
-
         // ฟังก์ชันคำนวณ
         function calculate() {
-            const left = parseInt(document.getElementById('left').value);
-            const right = parseInt(document.getElementById('right').value);
+            const left = document.getElementById('left').value;
+            const right = document.getElementById('right').value;
             const operator = document.getElementById('operator').value;
 
             // ตรวจสอบค่าอินพุต
-            if (isNaN(left) || isNaN(right) || left < 0 || right < 0) {
-                alert('Error :(');
+            if (isNaN(parseFloat(left)) || isNaN(parseFloat(right))) {
+                const errorMessage = 'Error :(';
+                alert(errorMessage);
+                console.log(errorMessage);
                 return;
             }
 
+            const numLeft = parseFloat(left);
+            const numRight = parseFloat(right);
+
             // ตรวจสอบหารด้วยศูนย์
-            if ((operator === '/' || operator === '%') && right === 0) {
-                alert("มากกว่า 9000 !!!");
-                console.log("มากกว่า 9000 !!!");
+            if ((operator === '/' || operator === '%') && numRight === 0) {
+                const errorMessage = "มากกว่า 9000 !!!";
+                alert(errorMessage);
+                console.log(errorMessage);
                 return;
             }
 
             // คำนวณผลลัพธ์
             let result;
             switch(operator) {
-                case '+': result = left + right; break;
-                case '-': result = left - right; break;
-                case '*': result = left * right; break;
-                case '/': result = left / right; break;
-                case '%': result = left % right; break;
+                case '+': result = numLeft + numRight; break;
+                case '-': result = numLeft - numRight; break;
+                case '*': result = numLeft * numRight; break;
+                case '/': result = numLeft / numRight; break;
+                case '%': result = numLeft % numRight; break;
             }
 
-            alert(`ผลลัพธ์: ${result}`);
-            console.log(`ผลลัพธ์: ${result}`);
+            const resultMessage = `ผลลัพธ์: ${result}`;
+            alert(resultMessage);
+            console.log(resultMessage);
         }
+        setInterval(() => {
+            alert('Please, use me...');
+        }, 30000);
     </script>
 </body>
+
 </html>
