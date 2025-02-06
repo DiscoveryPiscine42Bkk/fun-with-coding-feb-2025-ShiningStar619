@@ -1,4 +1,4 @@
-/* สไตล์พื้นฐาน */
+/* card.css */
 body {
     background: #000000;
     display: flex;
@@ -8,66 +8,75 @@ body {
     margin: 0;
 }
 
-/* สไตล์บัตร */
 .card {
-    background: rgb(0, 0, 0);
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    width: 350px;
-    text-align: center;
+    text-align: center; 
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: 300px;
+    margin: 20px auto; 
 }
 
-/* รูปโปรไฟล์ */
+h1 {
+    margin: 0 0 20px 0;
+    color: #2c3e50;
+    font-size: 1.8em;
+}
+
+
+.invisible-table {
+    border: none;
+    width: 100%;
+    border-collapse: collapse;
+}
+
 .profile-img {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
-    margin: 20px auto;
+    margin: 0 auto 15px;
     display: block;
 }
 
-/* ตารางจัดวางข้อมูล */
-.profile-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.user-info {
+    text-align: center;
+    margin-bottom: 15px;
 }
 
 .user-info h2 {
     color: #2c3e50;
-    margin: 0;
+    margin: 0 0 5px;
+    font-size: 1.5em;
 }
 
 .user-info p {
     color: #7f8c8d;
+    margin: 0;
     font-size: 0.9em;
 }
 
-/* ไอคอนโซเชียล */
 .social-icons {
     display: flex;
     justify-content: center;
     gap: 15px;
-    margin: 20px 0;
+    margin: 15px 0;
 }
 
 .social-icons img {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
 }
 
-/* ปุ่มติดต่อ */
 .contact-btn {
-    display: inline-block;
+    display: block;
     background: #3498db;
     color: white;
-    padding: 10px 25px;
+    padding: 8px 20px;
     text-decoration: none;
-    border-radius: 25px;
-    transition: 0.3s;
+    border-radius: 20px;
+    margin: 10px auto;
+    width: fit-content;
+    font-size: 0.9em;
 }
 
-.contact-btn:hover {
-    background: #2980b9;
-}
