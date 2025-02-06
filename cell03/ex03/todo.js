@@ -1,4 +1,3 @@
-
 function getCookie(name) {
     const cookies = document.cookie.split(';');
     for (let cookie of cookies) {
@@ -9,17 +8,16 @@ function getCookie(name) {
 }
 
 function setCookie(name, value) {
-    const expires = new Date(Date.now() + 86400e3).toUTCString(); // 1 วัน
+    const expires = new Date(Date.now() + 86400e3).toUTCString();
     document.cookie = `${name}=${encodeURIComponent(JSON.stringify(value))}; expires=${expires}; path=/`;
 }
 
-// โหลด To-Do จาก Cookie
 let todos = getCookie('todos') || [];
 const list = document.getElementById('ft_list');
 
 function loadTodos() {
     list.innerHTML = '';
-    todos.forEach(todo => addTodoItem(todo));
+    todos.slice().reverse().forEach(todo => addTodoItem(todo)); // แก้ไขบรรทัดนี้
 }
 
 function addTodoItem(text) {
@@ -33,10 +31,9 @@ function addTodoItem(text) {
             setCookie('todos', todos);
         }
     };
-    list.prepend(div); // เพิ่มด้านบนสุด
+    list.prepend(div);
 }
 
-// ปุ่ม New
 document.getElementById('newBtn').onclick = () => {
     const todo = prompt('เพิ่มรายการใหม่:');
     if (todo && todo.trim()) {
@@ -47,3 +44,4 @@ document.getElementById('newBtn').onclick = () => {
 };
 
 loadTodos();
+
