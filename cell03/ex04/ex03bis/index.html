@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do List</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #ft_list {
+            width: 300px;
+            margin: 20px auto;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        .todo-item {
+            padding: 10px;
+            margin: 5px;
+            background: #f8f8f8;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .todo-item:hover {
+            background: #f0f0f0;
+        }
+        #newBtn {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button id="newBtn">New</button>
+    <div id="ft_list"></div>
+
+    <script>
+        // ฟังก์ชันจัดการคุกกี้
+        function getCookie(name) {
+            const cookies = document.cookie.split(';');
+            for(let cookie of cookies) {
+                const [key, value] = cookie.trim().split('=');
+                if(key === name) return decodeURIComponent(value);
+            }
+            return null;
+        }
+
+        function setCookie(name, value, days=365) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days*24*60*60*1000));
+            document.cookie = `${name}=${encodeURIComponent(value)}; expires=${date.toUTCString()}; path=/`;
+        }
+
+        // โหลดข้อมูลจากคุกกี้เมื่อเริ่มต้น
+        $(document).ready(function() {
+            const todosCookie = getCookie('todos');
+            if(todosCookie) {
+                const todos = JSON.parse(todosCookie);
+                todos.forEach(todo => {
+                    $('#ft_list').append($('<div>').addClass('todo-item').text(todo));
+                });
+            }
+
+            // เพิ่มรายการใหม่
+            $('#newBtn').click(function() {
+                const todoText = prompt('กรุณาใส่รายการใหม่:');
+                if(todoText) {
+                    $('#ft_list').prepend($('<div>').addClass('todo-item').text(todoText));
+                    updateCookie();
+                }
+            });
+
+            // ลบรายการ
+            $('#ft_list').on('click', '.todo-item', function() {
+                if(confirm('คุณต้องการลบรายการนี้ใช่หรือไม่?')) {
+                    $(this).remove();
+                    updateCookie();
+                }
+            });
+
+            // อัพเดทคุกกี้
+            function updateCookie() {
+                const todos = [];
+                $('.todo-item').each(function() {
+                    todos.push($(this).text());
+                });
+                setCookie('todos', JSON.stringify(todos));
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator (jQuery)</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .calculator {
+            background: #f0f0f0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input, select, button {
+            margin: 5px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="left" placeholder="ตัวเลขซ้าย">
+        <select id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="%">%</option>
+        </select>
+        <input type="text" id="right" placeholder="ตัวเลขขวา">
+        <button id="calculateBtn">calculate!</button>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            function calculate() {
+                // ดึงค่าและแปลงเป็นตัวเลข
+                const numLeft = parseFloat($('#left').val());
+                const numRight = parseFloat($('#right').val());
+                const operator = $('#operator').val();
+
+                // ตรวจสอบเงื่อนไขข้อผิดพลาด
+                if (isNaN(numLeft) || isNaN(numRight) || numLeft < 0 || numRight < 0) {
+                    alert('error : ');
+                    console.log('error : ');
+                    return;
+                }
+
+                // ตรวจสอบการหารด้วยศูนย์
+                if ((operator === '/' || operator === '%') && numRight === 0) {
+                    alert("มากกว่า 9000 !!!");
+                    console.log("มากกว่า 9000 !!!");
+                    return;
+                }
+
+                // คำนวณผลลัพธ์
+                let result;
+                switch(operator) {
+                    case '+': result = numLeft + numRight; break;
+                    case '-': result = numLeft - numRight; break;
+                    case '*': result = numLeft * numRight; break;
+                    case '/': result = numLeft / numRight; break;
+                    case '%': result = numLeft % numRight; break;
+                }
+
+                // แสดงผลลัพธ์
+                const resultMessage = `ผลลัพธ์: ${result}`;
+                alert(resultMessage);
+                console.log(resultMessage);
+            }
+
+            $('#calculateBtn').click(calculate);
+        });
+    </script>
+</body>
+</html>
