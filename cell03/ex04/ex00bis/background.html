@@ -1,71 +1,25 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Balloon</title>
+    <title>Random Background (jQuery)</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <style>
-        #balloon {
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            background: #f0f0f0;
-        }
-    </style>
+    <link rel="stylesheet" href="background.css">
 </head>
 <body>
-    <div id="balloon"></div>
-
+    <button id="colorBtn">Click me!</button>
     <script>
+        function getRandomColor() {
+            return '#' + Math.floor(Math.random()*16777215).toString(16);
+        }
+
         $(document).ready(() => {
-            const colors = ['red', 'green', 'blue'];
-            let size = 200;
-            let colorIndex = 0;
-
-            // ตั้งค่าตั้งต้น
-            $('#balloon').css({
-                'width': size + 'px',
-                'height': size + 'px',
-                'background-color': colors[colorIndex]
-            });
-
-            // จัดการการคลิก
-            $('#balloon').click(() => {
-                size += 10;
-                colorIndex = (colorIndex + 1) % 3;
-                
-                if(size > 420) {
-                    size = 200;
-                    colorIndex = 0;
-                    alert('BOOM!');
-                }
-
-                $('#balloon').css({
-                    'width': size + 'px',
-                    'height': size + 'px',
-                    'background-color': colors[colorIndex]
-                });
-            });
-
-            // จัดการเมาส์ออก
-            $('#balloon').mouseleave(() => {
-                size = Math.max(200, size - 5);
-                colorIndex = (colorIndex - 1 + 3) % 3;
-                
-                $('#balloon').css({
-                    'width': size + 'px',
-                    'height': size + 'px',
-                    'background-color': colors[colorIndex]
-                });
+            $('#colorBtn').click(() => {
+                $('body').css('background-color', getRandomColor());
             });
         });
     </script>
 </body>
 </html>
+
+

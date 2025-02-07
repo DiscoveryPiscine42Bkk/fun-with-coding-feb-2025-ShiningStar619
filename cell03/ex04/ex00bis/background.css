@@ -1,18 +1,28 @@
 body {
-    transition: background-color 0.5s ease; /* เอฟเฟกต์เปลี่ยนสี */
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    margin: 0;
+    transition: background-color 0.3s ease;
 }
 
 #colorBtn {
     padding: 15px 30px;
     font-size: 1.2em;
     cursor: pointer;
-    border: none;
+    background-color: #ffffff;
+    border: 2px solid #333;
     border-radius: 25px;
-    background: #ffffff;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#colorBtn:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+}
+
+#colorBtn:active {
+    transform: translateY(0);
 }
